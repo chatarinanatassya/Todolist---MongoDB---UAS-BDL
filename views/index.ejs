@@ -1,0 +1,85 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi To-Do List</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #E8D8C4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        background-color: #C7B7A3;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: #561C24;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #6D2932;
+      }
+
+      a {
+        text-decoration: none;
+        color: #6D2932;
+        margin-top: 10px;
+      }
+
+      a:hover {
+        color: #6D2932;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Aplikasi To-Do List</h1>
+    <form action="/tambahTask" method="post">
+      <label for="task">Tugas</label>
+      <input type="text" id="task" name="task" required />
+      <label for="description">Deskripsi</label>
+      <input type="text" id="description" name="description" required />
+      <label for="date">Tanggal</label>
+      <input type="date" id="date" name="date" required />
+      <button type="submit">Tambah Tugas</button>
+    </form>
+    <!-- Perubahan pada rute untuk melihat daftar tugas -->
+    <a href="/daftarTugas">Lihat Daftar Tugas</a>
+  </body>
+  </html>

@@ -1,0 +1,84 @@
+<!-- views/daftarTugas.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Tugas</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #E8D8C4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #C7B7A3;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #6D2932;
+        color: white;
+      }
+
+      .task-actions a {
+        margin-right: 5px;
+        text-decoration: none;
+        color: #6D2932;
+      }
+
+      .task-actions a:hover {
+        color: #6D2932;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Daftar Tugas</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Tugas</th>
+          <th>Deskripsi</th>
+          <th>Tanggal</th>
+          <th>Tindakan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tugas.forEach(tugas => { %>
+        <tr>
+          <td><strong><%= tugas.task %></strong></td>
+          <td><%= tugas.description %></td>
+          <td><%= tugas.date %></td>
+          <td class="task-actions">
+            <!-- Perubahan rute pada bagian ini -->
+            <a href="/editTask/<%= encodeURIComponent(tugas._id) %>">Edit</a>
+            <a href="/hapus/<%= encodeURIComponent(tugas._id) %>">Hapus</a>
+          </td>         
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <!-- Perubahan rute pada bagian ini -->
+    <a href="/">Kembali</a>
+  </body>
+</html>
